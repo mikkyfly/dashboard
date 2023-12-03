@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dataDB ={};
+        const myWs = new WebSocket('ws://localhost:8000');
+        // обработчик проинформирует в консоль когда соединение установится
+        myWs.onopen = function () {
+            console.log('подключился');
+        };
+        // обработчик сообщений от сервера
+        myWs.onmessage = function (message) {
+            console.log('Message: %s', message.data);  
+            
+        };
+        // функция для отправки echo-сообщений на сервер
+        function wsSendEcho(value) {
+            myWs.send(JSON.stringify({action: 'ECHO', data: value.toString()}));
+        }
+        // функция для отправки команды ping на сервер
+        function wsSendPing() {
+            myWs.send(JSON.stringify({action: 'PING'}));
+        }
+    </script>
+</body>
+</html>

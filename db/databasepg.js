@@ -13,6 +13,33 @@ const client = new Client({
 
 client.connect();
 
+while(true){
+    setTimeout(function(){
+        client.query(`Select * from ups`, (err, res)=>{
+            if(!err){
+                console.log(res.rows);
+            }else{
+                console.log(err.message);
+            }
+            client.end;
+        });
+    },1000);
+}
+/*for (let i = 0; i < 5; i++) {
+    setTimeout(function(){
+        client.query(`Select * from ups`, (err, res)=>{
+            if(!err){
+                console.log(res.rows);
+            }else{
+                console.log(err.message);
+            }
+            client.end;
+        });
+    },1000);
+    
+}
+
+
 client.query(`Select * from ups`, (err, res)=>{
     if(!err){
         console.log(res.rows);
@@ -20,5 +47,4 @@ client.query(`Select * from ups`, (err, res)=>{
         console.log(err.message);
     }
     client.end;
-});
-
+});*/
