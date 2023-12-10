@@ -1,4 +1,7 @@
 const {Client} = require('pg');
+const UPSdb = [];
+const COMMdb =[];
+
 
 const client = new Client({
   host: "localhost",
@@ -10,10 +13,14 @@ const client = new Client({
 
 client.connect();
 
+
+
 setInterval(function(){
   client.query(`SELECT value_state FROM test ORDER BY value_state DESC LIMIT 1`,(err,res)=>{
-    if (!err) {
-      console.log(res.rows);
+    if (!err) {     
+      //function a(){UPSdb.push(res.rows);}   
+      UPSdb[UPSdb.length] = res.rows;    
+      console.log(UPSdb);         
     }
     else{
       console.log(err.message);
@@ -26,7 +33,8 @@ setInterval(function(){
 setInterval(function(){
   client.query(`SELECT value_state FROM test_2 ORDER BY value_state DESC LIMIT 1`,(err,res)=>{
     if (!err) {
-      console.log(res.rows);
+      COMMdb[COMMdb.length] = res.rows;     
+      console.log(COMMdb);
     }
     else{
       console.log(err.message);
