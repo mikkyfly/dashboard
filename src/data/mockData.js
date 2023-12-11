@@ -486,7 +486,7 @@ export const mockPieData = [
 ];
 
 export const mockLineData = [
-  {
+  /*{
     id: "Коммутатор",
     color: tokens("dark").greenAccent[500],
     data: [
@@ -539,116 +539,117 @@ export const mockLineData = [
         y: 14,
       },
     ],
-  },
+  },*/
   {
-    id: "ТСПД",
+    id: "УПС Uвых",
     color: tokens("dark").blueAccent[300],
     data: [
       {
         x: 0, //"plane"
-        y: 212,
+        y: 3,
       },
       {
         x: 1,
-        y: 190,
+        y: 2,
       },
       {
         x: 2,
-        y: 270,
+        y: 1,
       },
       {
         x: 3,
-        y: 9,
+        y: 2,
       },
       {
         x: 4,
-        y: 75,
+        y: 3,
       },
       {
         x: 5,
-        y: 175,
+        y: 3,
       },
       {
         x: 6,
-        y: 33,
+        y: 2,
       },
       {
         x: 7,
-        y: 189,
+        y: 1,
       },
       {
         x: 8,
-        y: 97,
+        y: 1,
       },
       {
         x: 9,
-        y: 87,
+        y: 2,
       },
       {
         x: 10,
-        y: 299,
+        y: 3,
       },
       {
         x: 11,
-        y: 251,
+        y: 3,
       },
     ],
   },
   {
-    id: "ИБП",
+    id: "ИБП Uвх",
     color: tokens("dark").redAccent[200],
     data: [
       {
         x: 0, //"plane"
-        y: 191,
+        y: 1,
       },
       {
         x: 1,
-        y: 136,
+        y: 0,
       },
       {
         x: 2,
-        y: 91,
+        y: 1,
       },
       {
         x: 3,
-        y: 190,
+        y: 0,
       },
       {
         x: 4,
-        y: 211,
+        y: 1,
       },
       {
         x: 5,
-        y: 152,
+        y: 0,
       },
       {
         x: 6,
-        y: 189,
+        y: 1,
       },
       {
         x: 7,
-        y: 152,
+        y: 0,
       },
       {
         x: 8,
-        y: 8,
+        y: 1,
       },
       {
         x: 9,
-        y: 197,
+        y: 0,
       },
       {
         x: 10,
-        y: 107,
+        y: 1,
       },
       {
         x: 11,
-        y: 170,
+        y: 0,
       },
     ],
   },
 ];
+
 
 export const mockGeographyData = [
   {

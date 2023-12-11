@@ -1,7 +1,9 @@
+//import { mockLineData as data } from "./mockData";
+
 const {Client} = require('pg');
 const UPSdb = [];
 const COMMdb =[];
-
+import { mockLineData as data } from '../src/data/mockData';
 
 const client = new Client({
   host: "localhost",
@@ -17,13 +19,19 @@ client.connect();
 
 setInterval(function(){
     client.query(`SELECT value_state FROM test ORDER BY value_state `,(err,res)=>{ //DESC LIMIT 1
-      if (!err) { 
-        
+      if (!err) {
+       
         for (let i = 0; i < res.rows.length; i++) {
+          //console.log(res.rows[i]['value_state']);
+          data[i].x=res.rows[i]['value_state'];
+        }
+
+
+        /*for (let i = 0; i < res.rows.length; i++) {
             UPSdb[i]= res.rows[i];            
         }
         var parseJsonUPS = JSON.stringify(UPSdb);
-        console.log(parseJsonUPS);     
+        console.log(parseJsonUPS);*/         
       }
       else{
         console.log(err.message);
@@ -51,3 +59,12 @@ setInterval(function(){
   })
 }
 ,1000);*/
+
+
+
+
+
+
+
+
+

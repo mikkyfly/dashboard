@@ -7,25 +7,31 @@
 </head>
 <body>
     <script>
-        const dataDB ={};
+        //import { mockLineData as data } from "../data/mockData"; 
+        const value_state = 'value_state';
         const myWs = new WebSocket('ws://localhost:8000');
+        const frontDatabase = [];
         // обработчик проинформирует в консоль когда соединение установится
         myWs.onopen = function () {
             console.log('подключился');
         };
         // обработчик сообщений от сервера
         myWs.onmessage = function (message) {
-            console.log('Message: %s', message.data);  
-            
+            const jsonParse = JSON.parse(message.data);
+            try {
+                //console.log(jsonParse[0]['value_state']);
+                for (let i = 0; i < jsonParse.length; i++) {
+                    //console.log(jsonParse[i]['value_state'])
+                    frontDatabase[i] = jsonParse[i]['value_state'];  
+                    //mockLineData.data.x[i] = frontDatabase[i];               
+                }
+                console.log(frontDatabase);
+            } catch (error) {
+                console.log('Error: ', error);
+            }
         };
-        // функция для отправки echo-сообщений на сервер
-        function wsSendEcho(value) {
-            myWs.send(JSON.stringify({action: 'ECHO', data: value.toString()}));
-        }
-        // функция для отправки команды ping на сервер
-        function wsSendPing() {
-            myWs.send(JSON.stringify({action: 'PING'}));
-        }
+
+        
     </script>
 </body>
 </html>
