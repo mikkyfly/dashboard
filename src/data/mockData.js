@@ -592,6 +592,14 @@ export const mockLineData = [
         x: 11,
         y: 3,
       },
+      {
+        x: 12,
+        y: 2,
+      },
+      {
+        x: 13,
+        y: -12,
+      },
     ],
   },
   {
@@ -605,7 +613,7 @@ export const mockLineData = [
       {
         x: 1,
         y: 0,
-      },
+      }, 
       {
         x: 2,
         y: 1,
@@ -628,7 +636,7 @@ export const mockLineData = [
       },
       {
         x: 7,
-        y: 0,
+        y: 1,
       },
       {
         x: 8,
@@ -644,7 +652,15 @@ export const mockLineData = [
       },
       {
         x: 11,
-        y: 0,
+        y: 3,
+      },
+      {
+        x: 12,
+        y: 2,
+      },
+      {
+        x: 13,
+        y: -1,
       },
     ],
   },

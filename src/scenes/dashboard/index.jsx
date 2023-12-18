@@ -237,14 +237,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Общая загрузка серверов:
+                Общая нагрузка:
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                35%
+                Коммутаторы
               </Typography>
             </Box>
             <Box>

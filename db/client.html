@@ -18,14 +18,17 @@
         // обработчик сообщений от сервера
         myWs.onmessage = function (message) {
             const jsonParse = JSON.parse(message.data);
+            //const jsonParse = Number(jsonParse1);
+
             try {
                 //console.log(jsonParse[0]['value_state']);
                 for (let i = 0; i < jsonParse.length; i++) {
-                    //console.log(jsonParse[i]['value_state'])
+                    console.log(typeof jsonParse[i]['value_state']);
+                    //alert(jsonParse[i]['value_state']);
                     frontDatabase[i] = jsonParse[i]['value_state'];  
                     //mockLineData.data.x[i] = frontDatabase[i];               
                 }
-                console.log(frontDatabase);
+                //console.log(frontDatabase);
             } catch (error) {
                 console.log('Error: ', error);
             }

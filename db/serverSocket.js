@@ -18,7 +18,7 @@ const client = new Client({
   client.connect();
 
   setInterval(function(){
-    client.query(`SELECT value_state FROM test ORDER BY value_state `,(err,res)=>{ //DESC LIMIT 1
+    client.query(`SELECT value_state FROM test ORDER BY value_state DESC LIMIT 1`,(err,res)=>{ //DESC LIMIT 1
       if (!err) {
         
         for (let i = 0; i < res.rows.length; i++) {
@@ -38,7 +38,7 @@ const client = new Client({
 
 
 setInterval(function(){
-  client.query(`SELECT value_state FROM test2 ORDER BY value_state`,(err,res)=>{
+  client.query(`SELECT value_state FROM test2 ORDER BY value_state DESC LIMIT 1`,(err,res)=>{
     if (!err) {
       for (let i = 0; i < res.rows.length; i++) {
          COMMdb[i]= res.rows[i];
@@ -59,40 +59,15 @@ wsServer.on('connection', onConnect);
 
 function onConnect(wsClient) {
     console.log('Новый пользователь');
-    wsClient.send('Привет Хьстон!');
-
-    setInterval(function a(){
+    setInterval(()=>{
       wsClient.send(JSON.stringify(UPSdb));
-      //wsClient.send(JSON.stringify(COMMdb));
-    },2000);
+      wsClient.send(JSON.stringify(COMMdb));
+    },3000);
+    
 
     wsClient.on('close', function() {
         console.log('Пользователь отключился');
     });
-
-    
-    /*
-    wsClient.on('message', function(message) {
-        console.log(message);
-        try {
-            const jsonMessage = JSON.parse(message);
-            switch (jsonMessage.action) {
-                case 'ECHO':
-                    wsClient.send(jsonMessage.data);
-                    break;
-                case 'PING':
-                    setTimeout(function() {
-                        wsClient.send('PONG');
-                    }, 2000);
-                    break;
-                default:
-                    console.log('Неизвестная команда');
-                    break;
-            }
-        } catch (error) {
-            console.log('Ошибка', error);
-        }
-    });*/
 }
 
 console.log('Сервер запущен на 8000 порту');
