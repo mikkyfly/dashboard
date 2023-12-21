@@ -1,11 +1,20 @@
+// import { useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { mockLineData as data } from "../data/dataLineGraph";
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> parent of 725797e (new)
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  // [data, LineChart] = useState();
+
+
 
   return (
     <ResponsiveLine
@@ -45,7 +54,15 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+<<<<<<< HEAD
+      xScale={{ 
+        type: "linear",
+        min:"auto",
+        max:"auto",
+      }}
+=======
       xScale={{ type: "point" }}
+>>>>>>> parent of 725797e (new)
       yScale={{
         type: "linear",
         min: "auto",
@@ -68,7 +85,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       }}
       axisLeft={{
         orient: "left",
-        tickValues: 5, // added
+        tickValues: 5, // added 5
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
@@ -101,7 +118,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           symbolBorderColor: "rgba(0, 0, 0, .5)",
           effects: [
             {
-              on: "hover",
+              on: "hover", //hover
               style: {
                 itemBackground: "rgba(0, 0, 0, .03)",
                 itemOpacity: 1,

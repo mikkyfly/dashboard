@@ -2,13 +2,30 @@ import { tokens } from "../theme";
 
 
 const myWs = new WebSocket('ws://localhost:8000');
-//const frontDatabase = [];
 // обработчик проинформирует в консоль когда соединение установится
 myWs.onopen = function () {
     console.log('подключился');
 };
 // обработчик сообщений от сервера
 myWs.onmessage = function (message) {
+<<<<<<< HEAD
+    const jsonParse = JSON.parse(message.data);  
+    
+    try {   
+      
+      let temp = {x:setInterval((counter) =>{
+        if(mockLineData[0].data.length === 50){
+          mockLineData[0].data.shift();
+          counter++
+        }
+        else{
+          counter++
+        }
+      }, 6000), y:jsonParse[0]['value_state']};
+      mockLineData[0].data.push(temp);
+      console.log(mockLineData[0].data);
+
+=======
     const jsonParse = JSON.parse(message.data);
     
     try {    
@@ -19,6 +36,7 @@ myWs.onmessage = function (message) {
           mockLineData[i].data[i].x = i;
           //console.log(mockLineData[i].data[i].y);              
         }       
+>>>>>>> parent of 725797e (new)
     } catch (error) {
         console.log('Error: ', error);
     }
