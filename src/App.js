@@ -39,7 +39,7 @@ function App() {
               <Route path="/calendar" element={<Calendar />} /> 
             </Routes>
           </main>
-        </div>;
+        </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

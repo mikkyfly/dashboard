@@ -1,24 +1,25 @@
-// import { useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { mockLineData as data } from "../data/dataLineGraph";
+import { useState, useEffect } from "react";
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of 725797e (new)
+
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  // [data, LineChart] = useState();
-
+  const [state, setState] = useState();
+  
+  useEffect(() => {
+    setState(data);    
+  }, []);
 
 
   return (
     <ResponsiveLine
-      data={data}
+      data={state}
       theme={{
         axis: {
           domain: {
@@ -54,15 +55,11 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-<<<<<<< HEAD
       xScale={{ 
         type: "linear",
         min:"auto",
         max:"auto",
       }}
-=======
-      xScale={{ type: "point" }}
->>>>>>> parent of 725797e (new)
       yScale={{
         type: "linear",
         min: "auto",
